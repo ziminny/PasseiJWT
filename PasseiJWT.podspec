@@ -12,4 +12,5 @@ Pod::Spec.new do |s|
   s.source                = { :git => 'https://github.com/ziminny/PasseiJWT.git', :tag => s.version.to_s }
   s.ios.deployment_target = '13.0'
   s.source_files          = 'PasseiJWT/Classes/**/*' 
+  d.dependency 'PasseiLogManager'
   end

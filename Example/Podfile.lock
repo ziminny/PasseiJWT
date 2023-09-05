@@ -4,17 +4,35 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
+  - PasseiJWT (0.0.2):
+    - PasseiLogManager
+  - PasseiLogManager (0.0.2)
 
 DEPENDENCIES:
   - FBSnapshotTestCase (~> 2.1.4)
+  - PasseiJWT (from `../`)
+  - PasseiLogManager (from `https://github.com/ziminny/PasseiLogManager.git`)
 
 SPEC REPOS:
   trunk:
     - FBSnapshotTestCase
 
+EXTERNAL SOURCES:
+  PasseiJWT:
+    :path: "../"
+  PasseiLogManager:
+    :git: https://github.com/ziminny/PasseiLogManager.git
+
+CHECKOUT OPTIONS:
+  PasseiLogManager:
+    :commit: 2bfee31c3695728a117f098d1de9ba99e774be36
+    :git: https://github.com/ziminny/PasseiLogManager.git
+
 SPEC CHECKSUMS:
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  PasseiJWT: 079226f23887e971ad265e2a5464ebe267b0f7ca
+  PasseiLogManager: 173f563d7c69ecf1eecf50afbb9ec2c631d475ce
 
-PODFILE CHECKSUM: 4805ba4d06cd97f49ec0320d2d18d14ab246ada9
+PODFILE CHECKSUM: 7fc3fdf2dc41122c949ae8d7468fff83d5e31f03
 
 COCOAPODS: 1.12.1

@@ -1,15 +1,13 @@
 use_frameworks!
 
 project 'PasseiJWT.xcodeproj'
-
-source 'https://github.com/ziminny/PasseiLogManager.git'
-
-
-platform :ios, '10.0'
+ 
+platform :ios, '14.0'
 
 target 'PasseiJWT_Example' do
-  pod 'PasseiLogManager' 
- # pod 'PasseiJWT', :path => '../'
+  use_frameworks!
+  pod 'PasseiLogManager', :git => 'https://github.com/ziminny/PasseiLogManager.git'
+  pod 'PasseiJWT', :path => '../'
 
   target 'PasseiJWT_Tests' do
     inherit! :search_paths

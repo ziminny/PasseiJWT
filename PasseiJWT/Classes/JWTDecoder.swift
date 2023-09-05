@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import LogManager
+import PasseiLogManager
 
 /// Decodifica o token de acesso
  

@@ -33,7 +33,7 @@ public class JWTDecoder {
         let parts = self.jwt.components(separatedBy: ".")
         
         if parts.count != 3 {
-            LogManager.dispachLog("Erro ao tentar decodificar o json em 3 partes")
+            PLMLogger.logIt("Erro ao tentar decodificar o json em 3 partes")
             throw JWTError.partsError("Erro ao tentar decodificar o json em 3 partes")
         }
         
@@ -49,14 +49,14 @@ public class JWTDecoder {
         }
         
         guard let dictionary = dictionary else {
-            LogManager.dispachLog("Erro ao tentar converte o dicionario em modelo")
+            PLMLogger.logIt("Erro ao tentar converte o dicionario em modelo")
             throw JWTError.notConvertData("Erro ao tentar converte o dicionario em modelo")
         }
         
         let jsonData = try JSONSerialization.data(withJSONObject: dictionary)
         
         guard let payloadClass = try? JSONDecoder().decode(ofType, from: jsonData) else {
-            LogManager.dispachLog("Erro ao tentar converte o dicionario em modelo")
+            PLMLogger.logIt("Erro ao tentar converte o dicionario em modelo")
             throw JWTError.notConvertData("Erro ao tentar converte o dicionario em modelo")
         }
         return payloadClass
@@ -88,12 +88,12 @@ public class JWTDecoder {
         let trimmedPayload = payload.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard let payloadData = Data(base64Encoded: trimmedPayload) else {
-            LogManager.dispachLog("Erro ao tentar converter para data")
+            PLMLogger.logIt("Erro ao tentar converter para data")
             throw JWTError.notConvertData("Erro ao tentar converter para data")
         }
 
         guard let payloadDictionary = try JSONSerialization.jsonObject(with: payloadData, options: []) as? [String: Any] else {
-            LogManager.dispachLog("Erro ao tentar converter para dicionário")
+            PLMLogger.logIt("Erro ao tentar converter para dicionário")
             throw JWTError.notConvertData("Erro ao tentar converter para dicionário")
         }
 
@@ -116,12 +116,12 @@ public class JWTDecoder {
         let payloadPaddingString = trimmedPayload + String(repeating: "=", count: paddingLength)
 
         guard let payloadData = Data(base64Encoded: payloadPaddingString) else {
-            LogManager.dispachLog("Erro ao tentar converter para data")
+            PLMLogger.logIt("Erro ao tentar converter para data")
             throw JWTError.notConvertData("Erro ao tentar converter para data")
         }
 
         guard let payloadDictionary = try JSONSerialization.jsonObject(with: payloadData, options: []) as? [String: Any] else {
-            LogManager.dispachLog("Erro ao tentar converter para dicionário")
+            PLMLogger.logIt("Erro ao tentar converter para dicionário")
             throw JWTError.notConvertData("Erro ao tentar converter para dicionário")
         }
 
